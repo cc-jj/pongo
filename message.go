@@ -48,5 +48,5 @@ func GameStateMessage(game *Game) Message {
 
 type MoveMessage struct {
 	Type MessageType `json:"type"` // "move"
-	Data string      `json:"data"` // "up", "down"
+	Data string      `json:"data"` // "up", "down", "stopped"
 }
