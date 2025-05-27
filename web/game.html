@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="web/game.css" />
+  </head>
+  <body>
+    <div class="game-header">
+      <div class="game-info">
+        <a href="/" class="back-button">← Back to Menu</a>
+        <div class="game-code">
+          Game Code: <span id="gameCodeDisplay">------</span>
+        </div>
+        <div class="hit-streak" id="hitStreak" style="display: none">
+          Hit Streak: <span id="hitStreakValue">0</span>
+        </div>
+      </div>
+
+      <div class="scores">
+        <div class="player-score">
+          <div class="player-label">Player 1</div>
+          <div id="player1Score">0</div>
+        </div>
+        <div class="player-score">
+          <div class="player-label">Player 2</div>
+          <div id="player2Score">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-container">
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+      <div id="statusOverlay" class="status-overlay">
+        <div class="waiting-message">Waiting for players...</div>
+        <div>Share your game code with a friend!</div>
+      </div>
+
+      <div class="connection-status disconnected" id="connectionStatus">
+        Connecting...
+      </div>
+    </div>
+
+    <div class="controls-info">
+      <div>
+        <strong>Controls:</strong> W/S or ↑/↓ arrows to move your paddle
+      </div>
+      <div>Ball speed increases with hit streak!</div>
+    </div>
+
+    <script src="web/game.js" type="module"></script>
+  </body>
+</html>

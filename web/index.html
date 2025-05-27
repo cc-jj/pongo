@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="web/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>PONG</h1>
+
+      <div class="game-section">
+        <form action="/game/new" method="POST">
+          <button type="submit">Start New Game</button>
+        </form>
+      </div>
+
+      <div class="or-divider">
+        <span>OR</span>
+      </div>
+
+      <div class="game-section join-section">
+        <input
+          type="text"
+          id="gameCode"
+          placeholder="Enter game code"
+          maxlength="5"
+        />
+        <br />
+        <button onclick="joinGame()">Join Game</button>
+      </div>
+
+      <div id="error" class="error" style="display: none"></div>
+
+      <div class="game-instructions">
+        <h3>How to Play</h3>
+        <p>
+          <strong>Controls:</strong> Use W/S or ↑/↓ arrow keys to move your
+          paddle
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function joinGame() {
+        const code = document.getElementById("gameCode").value.trim();
+        const errorDiv = document.getElementById("error");
+
+        if (!code) {
+          showError("Please enter a game code");
+          return;
+        }
+
+        if (code.length !== 5 || !/^\d{5}$/.test(code)) {
+          showError("Game code must be 5 digits");
+          return;
+        }
+
+        // Clear any previous errors
+        errorDiv.style.display = "none";
+
+        // Redirect to game
+        window.location.href = `/game?code=${code}`;
+      }
+
+      function showError(message) {
+        const errorDiv = document.getElementById("error");
+        errorDiv.textContent = message;
+        errorDiv.style.display = "block";
+      }
+
+      // Allow Enter key to join game
+      document
+        .getElementById("gameCode")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            joinGame();
+          }
+        });
+
+      // Auto-format game code input
+      document
+        .getElementById("gameCode")
+        .addEventListener("input", function (e) {
+          // Remove non-digits and limit to 6 characters
+          e.target.value = e.target.value.replace(/\D/g, "").slice(0, 6);
+        });
+    </script>
+  </body>
+</html>

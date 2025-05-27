@@ -1,0 +1,8 @@
+{
+  "main_file": ".",
+  "binary_name": "bin/pongo",
+  "watch_dir": ".",
+  "watch_exts": [".go", ".mod", ".sum", ".html", ".css", ".js"],
+  "watch_interval": "1s",
+  "max_watchers": 10
+}
