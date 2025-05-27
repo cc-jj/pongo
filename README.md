@@ -2,8 +2,8 @@
 
 ## Screenshots
 
-<img src="screenshots/homepage.png" alt="Home Page" width="200px" />
-<img src="screenshots/gamepage.png" alt="Game Page" width="200px" />
+<img src="screenshots/homepage.png" alt="Home Page" width="500px" />
+<img src="screenshots/gamepage.png" alt="Game Page" width="500px" />
 
 ## Requirements
 
