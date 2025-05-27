@@ -1,9 +1,17 @@
 # Pongo
 
-## Screenshots
+![gamepage](screenshots/gamepage.png)
 
-<img src="screenshots/homepage.png" alt="Home Page" width="200px" />
-<img src="screenshots/gamepage.png" alt="Game Page" width="200px" />
+## Overview
+
+Pong written in Go and vanilla JS.
+
+## Features
+
+- Create a game and share the code
+- Or join an existing game if you know the code
+- Track the hit streak and your score
+- The ball moves faster and faster as the streak increases
 
 ## Requirements
 
