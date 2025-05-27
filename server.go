@@ -11,6 +11,11 @@ import (
 	"github.com/coder/websocket"
 )
 
+var (
+	// Only allow websocket connections from these origins
+	WS_ORIGINS = []string{"localhost"}
+)
+
 type Server struct {
 	gameManager *GameManager
 }
@@ -62,7 +67,7 @@ func (s *Server) wsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	conn, err := websocket.Accept(w, r, &websocket.AcceptOptions{
-		OriginPatterns: []string{"*"}, // Allow all origins for development
+		OriginPatterns: WS_ORIGINS,
 	})
 	if err != nil {
 		log.Printf("WebSocket accept error: %v", err)
